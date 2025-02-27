@@ -26,6 +26,8 @@ public class Cheatsheet { /*
 }
 
 /*
+                         -> Klassenname hier Cheatsheet
+
   javac Cheatsheet.java  ->  Compiler erzeugt Datei Cheatsheet.class mit Bytecode.
   java Cheatsheet        ->  Laufzeitumgebung (JVM) führt Bytecode aus.
  */
