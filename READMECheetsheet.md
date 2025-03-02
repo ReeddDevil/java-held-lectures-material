@@ -21,6 +21,7 @@ public class Cheatsheet { /*
                              ☝️ String[] ist der Parametertyp.
                                      ☝️ args ist der Parametername.
                                            ☝️ nach dem { befindet man sich im Rumpf der Methode. */
+      
   } /*
  ☝️  Jede öffnende { hat immer eine schließende } */
 }
@@ -91,11 +92,11 @@ class InputAndOutputExamples {
     final double PI = 3.14159;  // Konstante (kann nicht geändert werden)
 
     // Literal-Notationen
-    int binary = 0b1010_1010;  // 170 in Dezimal
+    int binary = 0b1010_1010;  // 170 in Dezimal       2^7 + 2^5 + 2^3 + 2^1
     //           ☝️
-    int hex = 0xA5;            // 165 in Dezimal
+    int hex = 0xA5;            // 165 in Dezimal       A ist 10  10 * 16 + 5
     //        ☝️
-    int oktal = 0777;          // 511 in Dezimal
+    int oktal = 0777;          // 511 in Dezimal     7 * 8^2 + 7 * 8^1 + 7 * 8^0 = 448 + 56 + 7 = 511
     //         ☝️️
     int million = 1_000_000;   // Unterstriche machen große Zahlen lesbarer
     //            ☝️   ☝️
@@ -111,23 +112,25 @@ class InputAndOutputExamples {
     System.out.println( a + b );  // 13
     System.out.println( a - b );  // 7
     System.out.println( a * b );  // 30
-    System.out.println( a / b );  // 3
-    System.out.println( a % b );  // 1
+    System.out.println( a / b );  // 3          ganzahlige Division in Java. Wird immer abgerundet                
+    System.out.println( a % b );  // 1          Modulo Rechnung: 10 = 3*3 + 1 als R
     System.out.println( ++a );    // 11
+    System.out.println( a++ );    // 11         erst 11, dann wird erhöht auf 12
     System.out.println( --b );    // 2
+    System.out.println( b-- );    // 2          erst 3, dann wird verkürzt auf 2
 
     int ch;
     // Zuweisungsoperatoren
     ch = 15;
-    System.out.println( ch += 5 ); // 20
-    System.out.println( ch -= 5 ); // 15
+    System.out.println( ch += 5 ); // 20        ch = ch + 5
+    System.out.println( ch -= 5 ); // 15        
     System.out.println( ch *= 2 ); // 30
     System.out.println( ch /= 3 ); // 10
     System.out.println( ch %= 4 ); // 2
 
-    // Vergleichsoperatoren
-    System.out.println( 1 == 2 ); // false
-    System.out.println( 1 != 2 ); // true
+    // Vergleichsoperatoren                    für primitive Datentypen
+    System.out.println( 1 == 2 ); // false     genau gleich
+    System.out.println( 1 != 2 ); // true      ungleich
     System.out.println( 2 > 1 );  // true
     System.out.println( 2 < 1 );  // false
     System.out.println( 1 >= 1 ); // true
@@ -137,22 +140,22 @@ class InputAndOutputExamples {
     System.out.println( !true );         // false (NICHT)
     System.out.println( true && false ); // false (UND)
     System.out.println( true || false ); // true  (ODER)
-    System.out.println( true ^ false );  // true  (logisches XOR)
-    System.out.println( true ^ true );   // false
+    System.out.println( true ^ false );  // true  (logisches XOR)          1 0 sowie 0 1 sind true 
+    System.out.println( true ^ true );   // false                          0 0 oder 1 1 sind false
 
     // Bitweise Operatoren
     int m = 0b1010_1010;   //  170 in Dezimal
     int n = 0b0011_1100;   //   60 in Dezimal
     int p = -0b1010_1010;  // -170 in Dezimal
 
-    System.out.println( m & n );   // 44  (0b0010_1000)
-    System.out.println( m | n );   // 186 (0b1011_1110)
-    System.out.println( m ^ n );   // 142 (0b1001_0110)
-    System.out.println( ~m );      // -171 (0b1111_1111_1111_1111_1111_1111_0101_0101)
-    System.out.println( m << 2 );  // 680 (0b10_1010_1000)
-    System.out.println( m >> 2 );  // 42  (0b0010_1010)
-    System.out.println( m >>> 2 ); // 42  (0b0010_1010)
-    System.out.println( p >> 2 );  // -43 (0b1111_1111_1111_1111_1111_1111_1101_0110)
+    System.out.println( m & n );   // 44  (0b0010_1000)                      logisches Und, vergleicht Bitweise
+    System.out.println( m | n );   // 186 (0b1011_1110)                      logisches Oder, vergleicht Bitweise
+    System.out.println( m ^ n );   // 142 (0b1001_0110)                      XOR, Bitweise
+    System.out.println( ~m );      // -171 (0b1111_1111_1111_1111_1111_1111_0101_0101)          kehrt die Bits um
+    System.out.println( m << 2 );  // 680 (0b10_1010_1000)                   Links-shift 2-Bit, wird mit 0er, von rechts aufgefüllt
+    System.out.println( m >> 2 );  // 42  (0b0010_1010)                      Rechts-shift 2-Bit, wird mit 0er, von links aufgefüllt
+    System.out.println( m >>> 2 ); // 42  (0b0010_1010)                      unsigned Rechts-shift 2-Bit
+    System.out.println( p >> 2 );  // -43 (0b1111_1111_1111_1111_1111_1111_1101_0110)      links werden 1er-Bits eingefügt bei REchts-shift 2-Bit
     System.out.println( p >>> 2 ); // 1073741781 (0b0011_1111_1111_1111_1111_1111_1101_0110)
 
     // Bedingungsoperator
@@ -160,13 +163,13 @@ class InputAndOutputExamples {
     double x = 12, y = 22;
     double max = x > y ? x : y;      // 22
 
-    // Implizite Typumwandlung (Widening Casting)
+    // Implizite Typumwandlung (Widening Casting)                    kleinen zum größeren
     long longVal = 1;                   // int zu long
     float floatVal = 12345678901234L;   // long zu float
-    double doubleVal = floatVal;        // float zu double
-    int charCode = 'A';                 // char zu int
+    double doubleVal = floatVal;        // float zu double           
+    int charCode = 'A';                 // char zu int                65
 
-    // Explizite Typumwandlung (Narrowing Casting)
+    // Explizite Typumwandlung (Narrowing Casting)                   größeren zu kleineren
     double doubleNum = 9.78;
     float floatNum = (float) doubleNum;     // double zu float
     //                  ☝️                     Zieltyp in runden Klammern vor Ausdruck
@@ -202,7 +205,7 @@ class InputAndOutputExamples {
     // switch-Anweisung mit ->
     switch ( day ) {
       case null -> throw new IllegalStateException();
-      //   ☝️   case null fängt null-Referenz ab
+      //   ☝️   case null fängt null-Referenz ab. D. h. wenn day = null wäre
       case "MONDAY", "FRIDAY", "SUNDAY" -> System.out.println( "Busy day" );
       //          ☝️  ️Mehrere Fälle mit Komma abtrennen
       case "TUESDAY" -> System.out.println( "Productive day" );
@@ -212,15 +215,15 @@ class InputAndOutputExamples {
       // ☝️     default deckt ab, was die anderen case nicht abgedeckt haben
     }
 
-    // switch-Ausdruck mit ->
-    System.out.println( switch ( day ) {
+    // switch-Ausdruck mit ->                           
+    System.out.println( switch ( day ) {                     // Merke: befinde mich in .md Datei, daher geht strg + B nicht
       case "MONDAY", "FRIDAY", "SUNDAY" -> "Busy day";
       case "TUESDAY" -> "Productive day";
       case "WEDNESDAY", "THURSDAY" -> "Normal day";
       case "SATURDAY" -> {
         String result = "Lazy day";
         yield result;
-        //☝️  yield nutzen, wenn rechts vom Pfeil kein direkter Ausdruck steht
+        //{☝️  yield nutzen, wenn rechts vom Pfeil -> kein direkter Ausdruck steht
       }
       case null, default -> "Invalid day";
       //       ☝️        null und default kann man mit case und Komma zusammenfassen
@@ -263,7 +266,7 @@ class InputAndOutputExamples {
 
     StringBuilder stringBuilder2 = new StringBuilder(); // Deklaration und Initialisierung
 
-    StringBuilder anotherRef = stringBuilder;            // Referenz kopieren
+    StringBuilder anotherRef = stringBuilder;            // Referenz kopieren, d. h. beide Referenzen zeigen jetzt aufs gleiche Objekt
 
     // Zugreifen auf Objektmethoden und -variablen
     stringBuilder.append( 1 );                           // Aufrufen einer Methode des Objekts
@@ -282,6 +285,8 @@ class InputAndOutputExamples {
     if ( stringBuilder != null ) {
       stringBuilder.toString();                       // Methode nur aufrufen, wenn das Objekt existiert
     }
+//      Merke: StringBuilder ist eine veränderbare (mutable) Zeichenkette, die effizient Zeichen anfügen, einfügen oder löschen kann.
+//             String ist hingegen unveränderlich (immutable), d. h., jede Änderung erzeugt ein neues String-Objekt.
   }
 }
 
@@ -292,7 +297,7 @@ class InputAndOutputExamples {
     // Arrays deklarieren und Array-Literal-Notation
     int[] intArray = { 1, 2, 3, 4, 5 };              // Array von Ganzzahlen
     String[] stringArray = new String[ 5 ];          // Array von Strings mit Länge 5
-    int[][] twoDArray = { { 1, 2 }, { 3, 4 }, { 5, 6 } }; // Zweidimensionales Array
+    int[][] twoDArray = { { 1, 2 }, { 3, 4 }, { 5, 6 } }; // Zweidimensionales Array 3x2
 
     // Auf Array-Elemente zugreifen
     int firstElement = intArray[ 0 ];                // Erstes Element des Arrays
@@ -304,13 +309,14 @@ class InputAndOutputExamples {
       System.out.println( intArray[ i ] );           // Element per Indexzugriff ausgeben
     }
 
-    for ( int value : intArray ) {                   // Variante 2: Erweitere for-Schleife
+    for ( int value : intArray ) {                   // Variante 2: Erweitere for-Schleife / for-each
       System.out.println( value );                   // Der Index steht nicht zur Verfügung
     }
 
     // java.util.Arrays ist eine Utiltiy-Klasse
     Arrays.fill( intArray, 42 );                     // Alle Elemente des Arrays auf 42 setzen
     Arrays.sort( intArray );                         // Sortieren in aufsteigender Reihenfolge
+                                                     // Merke: gibt für primitive Typen kein absteigend sortieren per Arrays.xxx();
     Arrays.sort( stringArray );                      // String-Array alphabetisch sortieren
     // Binäre Suche im sortierten Array, -1 wenn nicht gefunden
     int index = Arrays.binarySearch( intArray, 3 );
@@ -327,15 +333,15 @@ class InputAndOutputExamples {
     int[][][] threeDArray = new int[ 2 ][ 2 ][ 2 ];      // Dreidimensionales Array 2x2x2
 
     // Mehrdimensionale Arrays iterieren
-    for ( int i = 0; i < matrix.length; i++ ) {
-      for ( int j = 0; j < matrix[ i ].length; j++ ) {
+    for ( int i = 0; i < matrix.length; i++ ) {          // Anzahl Zeilen
+      for ( int j = 0; j < matrix[ i ].length; j++ ) {   // Anzahl der Spalten einer Zeile
         System.out.print( matrix[ i ][ j ] + " " );
       }
       System.out.println();
     }
   }
-
-  static void printInfo( String name, int... scores ) {
+    // Varargs
+  static void printInfo( String name, int... scores ) {                // kann hier beliebig viele int-values reingeben
     //                                   ☝️  Methode mit Varargs
     System.out.println( "Name: " + name );
     System.out.println( "Scores: " + Arrays.toString( scores ) );
@@ -353,10 +359,10 @@ class InputAndOutputExamples {
     char c1 = 'A';
     char c2 = 65;                           // ASCII-Wert für 'A'
     // char Operationen
-    char nextChar = (char) (c1 + 1);        // 'B'
+    char nextChar = (char) (c1 + 1);        // 'B'      durch + 1 wird zu int, casten zu char
     // Character (Wrapper-Klasse für char)
     Character ch = new Character( 'A' );
-    Character ch2 = 'A';                    // Autoboxing
+    Character ch2 = 'A';                    // Autoboxing     char zuweisen zu Character
     // Character statische Methoden
     boolean isDigit = Character.isDigit( '5' );       // true
     boolean isLetter = Character.isLetter( 'A' );     // true
@@ -367,9 +373,9 @@ class InputAndOutputExamples {
     // String
     String s1 = "tutego";
     String s2 = new String( "tutego" );     // Möglich, aber
-    s1.length();                            // Länge des Strings
+    s1.length();                            // Länge des Strings 6
     s1.charAt( 0 );                         // Zeichen an Position 0
-    s1.substring( 1, 4 );                   // Teilstring von Index 1 bis 3
+    s1.substring( 1, 4 );                   // Teilstring von Index 1 bis 3       nicht bis 4
     s1.toLowerCase();                       // In Kleinbuchstaben
     s1.toUpperCase();                       // In Großbuchstaben
     s1.trim();                              // Leerzeichen am Anfang und Ende entfernen
@@ -380,13 +386,13 @@ class InputAndOutputExamples {
     // String Vergleiche
     boolean isEqual = s1.equals( s2 );      // Inhalt vergleichen
     boolean isSameRef = (s1 == s2);         // Referenz vergleichen (Vorsicht!)
-    int compResult = s1.compareTo( s2 );    // Lexikografischer Vergleich, <0, ==0, >0
+    int compResult = s1.compareTo( s2 );    // Lexikografischer Vergleich, <0, ==0, >0                       A < E < Z < a < z
 
     // StringBuilder
     StringBuilder sb = new StringBuilder();
     StringBuilder sb2 = new StringBuilder( "Initial content" );
     sb.append( "Hello" );                   // Anhängen
-    sb.insert( 5, " World" );               // Einfügen an Position 5
+    sb.insert( 5, " World" );               // Einfügen an Position 5         Hello World
     sb.delete( 5, 11 );                     // Löschen von Index 5 bis 10
     sb.reverse();                           // Umkehren
     String result = sb.toString();          // In String umwandeln
@@ -421,6 +427,9 @@ class InputAndOutputExamples {
     System.out.println( a == b );                 // true (Caching -128 bis 127)
     System.out.println( c == d );                 // false
     System.out.println( c.equals( d ) );          // true
+      
+    // Merke: Der Heap ist ein großer, gemeinsam genutzter Speicherbereich, in dem Objekte zur Laufzeit dynamisch gespeichert werden.
+    //        new Integer(128) erstellt jedes Mal ein neues Objekt im Heap.  
   }
 }
 

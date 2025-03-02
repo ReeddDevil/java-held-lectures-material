@@ -10,35 +10,48 @@
  * @see OverloadedMethods
  */
 public class VariableDeclarations {
-  public static void main( String[] args ) {
-    // byte -> 1 Byte
-    // short -> 2 Byte
-    // int -> 4 Byte
-    // long -> 8 Byte
-    long age = +100000000000000L;
-    System.out.println(age);
+    public static void main(String[] args) {
+        // byte -> 1 Byte
+        // short -> 2 Byte
+        // int -> 4 Byte
+        // long -> 8 Byte          geht großes L (kleines l geht, dennoch nicht empfohlen)
+        // Merke: Ganzzahlige Datentypen haben VZ.
+        //        Größe fix vorgegeben
 
-    short s = 12;
-    byte b = -128;  // -128 .. +127
+        long age = +100000000000000L;
+        // Merke:                  Noch größere Zahl als long, dann BigInteger verwenden
+        System.out.println(age);
 
-    // float -> 4 Byte
-    // double -> 8 Byte
-    double d = 12.333;
-    float  f = 2323;
+        short s = 12;
+        byte b = -128;  // -128 .. +127
 
-    // char -> 2 Byte
-    char sb = 'C';
-    String name = "Chris";
+        // float -> 4 Byte
+        // double -> 8 Byte
+        double d = 12.333;
+        float f = 23.23f;
 
-    // boolean -> 1 Bit
-    boolean snowing = true;
+        // char -> 2 Byte         nummerischer Datentyp
+        char sb = 'C';            // ein Zeichen
+        String name = "Chris";    // eine Zeichfolge
 
-    int x, y = 12;
-    System.out.println(y);
-    x = 12;
-    x = 11;
-    x = 10;
-    System.out.println(x);
-    final double PI = 3.1415;
-  }
+        // boolean -> 1 Bit
+        boolean snowing = true, test;
+        int z = 4;
+        test = (z > 3) ? snowing : false;
+        System.out.println(test);
+
+        // Merke: lokale Variablen (in einer Methode) werden nicht automatisch initialisiert
+        // Mehrere Variablen deklarieren und/sowie initialisieren
+        int x, y = 12;            // Nur y hier initialisiert
+        //    System.out.println(x);    // Variable x might not have been initialized
+        System.out.println(y);
+        x = 12;
+        x = 11;
+        x = 10;
+        System.out.println(x);
+
+        // final variable           is a Modifier
+        final double PI = 3.1415;
+//         PI = 2;                 Cannot assign a value to final variable 'PI'
+    }
 }
